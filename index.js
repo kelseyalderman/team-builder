@@ -147,6 +147,8 @@ const addIntern = () => {
 
 const finishTeam = () => {
   console.log(team);
+  generatePage(team);
+  console.log("Team created!");
 };
 
 createTeam();
