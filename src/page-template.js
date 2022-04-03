@@ -109,7 +109,7 @@ module.exports = (team) => {
     />
     <script src="https://kit.fontawesome.com/c502137733.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <title>Team Profile</title>
+    <title>Team Builder</title>
   </head>
   <body>
     <div class="row">
