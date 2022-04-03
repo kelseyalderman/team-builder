@@ -34,7 +34,6 @@ const createTeam = () => {
       },
     ])
     .then((userInput) => {
-      console.log(userInput);
       const manager = new Manager(
         userInput.name,
         userInput.id,
@@ -99,7 +98,6 @@ const addEngineer = () => {
       },
     ])
     .then((userInput) => {
-      console.log(userInput);
       const engineer = new Engineer(
         userInput.name,
         userInput.id,
@@ -136,7 +134,6 @@ const addIntern = () => {
       },
     ])
     .then((userInput) => {
-      console.log(userInput);
       const intern = new Intern(
         userInput.name,
         userInput.id,

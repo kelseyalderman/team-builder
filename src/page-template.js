@@ -15,7 +15,7 @@ const generatePage = (team) => {
                   Email:
                   <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a>
                 </li>
-                <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
+                <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
             </ul>
         </div>
     </div>`;
