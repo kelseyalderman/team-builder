@@ -1,10 +1,13 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const generatePage = require("./src/page-template");
-const { writeFile, copyFile } = require("./utils/generate-site");
-const team = [];
+const path = require("path");
+const output_dir = path.resolve(__dirname, "dist");
+const outputPath = path.join(output_dir, "index.html");
+const teamArr = [];
 
 const createTeam = () => {
   return inquirer
@@ -38,7 +41,7 @@ const createTeam = () => {
         userInput.email,
         userInput.officeNumber
       );
-      team.push(manager);
+      teamArr.push(manager);
       buildTeam();
     });
 };
@@ -103,7 +106,7 @@ const addEngineer = () => {
         userInput.email,
         userInput.github
       );
-      team.push(engineer);
+      teamArr.push(engineer);
       buildTeam();
     });
 };
@@ -140,15 +143,32 @@ const addIntern = () => {
         userInput.email,
         userInput.school
       );
-      team.push(intern);
+      teamArr.push(intern);
       buildTeam();
     });
 };
 
+// // Function to write file
+// const writeFile = (fileContent) => {
+//   return new Promise((resolve, reject) => {
+//     fs.writeFile("./dist/index.html", fileContent, (err) => {
+//       if (err) {
+//         reject(err);
+//         return;
+//       }
+
+//       resolve({
+//         ok: true,
+//         message: "HTML created!",
+//       });
+//     });
+//   });
+// };
+
 const finishTeam = () => {
-  console.log(team);
-  generatePage(team);
   console.log("Team created!");
+
+  fs.writeFileSync(outputPath, generatePage(teamArr), "UTF-8");
 };
 
 createTeam();
