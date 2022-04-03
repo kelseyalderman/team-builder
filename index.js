@@ -5,8 +5,8 @@ const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const generatePage = require("./src/page-template");
 const path = require("path");
-const output_dir = path.resolve(__dirname, "dist");
-const outputPath = path.join(output_dir, "index.html");
+const directory = path.resolve(__dirname, "dist");
+const output = path.join(directory, "index.html");
 const teamArr = [];
 
 const createTeam = () => {
@@ -148,27 +148,10 @@ const addIntern = () => {
     });
 };
 
-// // Function to write file
-// const writeFile = (fileContent) => {
-//   return new Promise((resolve, reject) => {
-//     fs.writeFile("./dist/index.html", fileContent, (err) => {
-//       if (err) {
-//         reject(err);
-//         return;
-//       }
-
-//       resolve({
-//         ok: true,
-//         message: "HTML created!",
-//       });
-//     });
-//   });
-// };
-
 const finishTeam = () => {
   console.log("Team created!");
 
-  fs.writeFileSync(outputPath, generatePage(teamArr), "UTF-8");
+  fs.writeFileSync(output, generatePage(teamArr), "UTF-8");
 };
 
 createTeam();
